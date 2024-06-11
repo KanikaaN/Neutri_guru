@@ -1,67 +1,66 @@
 # NutriGuru
-This project is meal planner as well as meal calories detector. Based on the user input it will help the user as per their needs
-It utilizes natural language processing to generate creative meal ideas using ingredients selected by the
-algorithm.
+
+NutriGuru is a sophisticated meal planning and calorie detection application developed as part of a college project. This innovative tool is designed to help users meet their dietary needs and preferences with ease. Leveraging advanced natural language processing, NutriGuru generates creative meal ideas using ingredients selected by the algorithm, ensuring both variety and nutritional balance.
 
 ## Features
-- Food image detection and calories predictor
-- Calculation of daily calorie needs based on user inputs like age, height, weight, and gender
-- Selection of user food preferences and allergies/restrictions
-- Generation of meal plans for breakfast, lunch, and dinner within the target calorie ranges
-- Creative naming and description of meals using natural language generation
-- Meal Generation using Anthropic Claude AI assistant
+
+- **Food Image Detection and Calorie Prediction**: Identify food items and predict their calorie content using a pre-trained TensorFlow model.
+- **Daily Calorie Needs Calculation**: Determine daily calorie requirements based on user inputs such as age, height, weight, and gender.
+- **Personalized Food Preferences and Restrictions**: Customize meal plans by selecting food preferences and accounting for allergies or dietary restrictions.
+- **Meal Plan Generation**: Create balanced meal plans for breakfast, lunch, and dinner within the target calorie ranges.
+- **Creative Meal Naming and Descriptions**: Use Anthropic Claude AI to generate creative names and descriptions for meals.
+- **User-friendly Interface**: Developed with Streamlit for an intuitive and interactive user experience.
 
 ## Technology
 
-- Python
-- Streamlit for app UI
-- Pandas for data manipulation
-- tensorflow (predefined model)
-- Anthropic Claude API for NLP completions
+- **Python**: Core programming language for the application.
+- **Streamlit**: Framework for building the app's UI.
+- **Pandas**: Data manipulation library.
+- **TensorFlow**: Pre-trained model for food image detection and calorie prediction.
+- **Anthropic Claude API**: Natural language processing for generating meal names and descriptions.
 
 ## Installation
 
 Clone the repository and install the dependencies using pipenv:
 
 ```bash
-git clone
+git clone https://github.com/yourusername/ai-meal-planner.git
 cd ai-meal-planner
 pipenv install
 ```
 
 ## Usage
 
-Run the app using streamlit:
+Run the app using Streamlit:
 
 ```bash
 streamlit run streamlit_meal_planner.py
 ```
 
-Add your API key to `.streamlit/secrets.toml`:
+Add your API keys to `.streamlit/secrets.toml`:
 
-```bash
+```toml
 anthropic_apikey="YOUR_API_KEY"
 openai_apikey="YOUR_API_KEY"
 ```
 
+## Random Greedy Algorithm
 
-## Random greedy algorithm 
+The app employs a random greedy algorithm to generate meal plans:
 
-- Calculating the target calories for breakfast, lunch, and dinner based on the user's BMR.
-- Randomly selecting a food group (e.g. fruits, proteins etc).
-- Randomly selecting a food item from that group.
-- Checking if adding that item would exceed the calorie target.
-- If not, adding the item to the selected ingredients list.
-- Repeating steps 2-5 until the calories are within 10 of the target or all items are selected.
+1. Calculate the target calories for breakfast, lunch, and dinner based on the user's Basal Metabolic Rate (BMR).
+2. Randomly select a food group (e.g., fruits, proteins).
+3. Randomly select a food item from that group.
+4. Check if adding the item would exceed the calorie target.
+5. If not, add the item to the selected ingredients list.
+6. Repeat steps 2-5 until the calories are within 10 of the target or all items are selected.
 
-### The goal is to select a set of food items that maximize calories, while not exceeding the target calories. This is similar to the knapsack problem.
+This approach aims to select a set of food items that maximize calories without exceeding the target, akin to the knapsack problem.
 
+## Project Background
 
----
+NutriGuru was developed as a college project, showcasing the application of artificial intelligence in personalized meal planning and natural language generation. This tool demonstrates significant potential in helping individuals manage their dietary needs efficiently. Future enhancements could include user accounts, expanded food options, and detailed recipe instructions.
 
-The app calculates the user's basal metabolic rate to determine their daily calorie needs. It then randomly selects
-ingredients from categorized food items to meet the calorie targets for each meal. The selected ingredients are passed
-to the Claude AI to generate creative names and descriptions for the meals.
+## Conclusion
 
-The project demonstrates an application of AI for personalized meal planning and natural language generation. It could
-be extended by adding user accounts, more food options, recipe instructions etc.
+NutriGuru is a valuable tool for anyone looking to manage their diet more effectively. Its ability to personalize meal plans and generate creative meal descriptions makes it a practical and enjoyable solution for dietary planning. This project not only highlights the practical applications of AI but also serves as a testament to the skills and innovation fostered during the college project.
